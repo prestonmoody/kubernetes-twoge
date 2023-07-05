@@ -17,12 +17,14 @@ EXPOSE 8080
 CMD python app.py
 ```
 I then pushed this image to my Dockerhub which I will reference in my deployment yamel file
+
 ```
 docker push pmoody199/twoge-k8s
 ```
 I then wrote 6 .yml files for the app, app service, database, database service, secret, and config map.
 
 In this deployment file you will notice my readiness probe that has an initial delay to wait for my postgres database pod to form before creating itself.
+
 twoge-dep.yml
 ```
 apiVersion: apps/v1
@@ -203,12 +205,13 @@ spec:
     limits.cpu: "2"
     limits.memory: 2Gi
 ```
-I then went into my EC2 instance and brought all of my yml files with me
-I made a new directory separate from where my config file for the ELK stack lived to keeps commands simple
+I then went into my EC2 instance and brought all of my yml files with me.
+
+I made a new directory separate from where my config file for the ELK stack lived to keeps commands simple.
+
 Next I changed my namespace for the elk stack to my own
 ```
 kubectl config set-context --current --namespace=preston
-
 ```
 I then ran all of the same commands while only changing my app service file type to LoadBalancer and deleting the NodePort since we will no longer need it.
 ```
@@ -224,7 +227,10 @@ spec:
   selector:
     app: twoge-k8s
 ```
-
+challenges.
+1. Switching the nodeports between namespaces.
+2. The order of deploying these .yml files especially the resource quota.
+3. Getting the Elk stack configured.
 
 
 
