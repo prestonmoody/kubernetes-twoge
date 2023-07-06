@@ -207,9 +207,9 @@ spec:
 ```
 I then went into my EC2 instance and brought all of my yml files with me.
 
-I made a new directory separate from where my config file for the ELK stack lived to keeps commands simple.
+I made a new directory separate from where my config file for the EKS stack lived to keeps commands simple.
 
-Next I changed my namespace for the elk stack to my own
+Next I changed my namespace for the EKS stack to my own
 ```
 kubectl config set-context --current --namespace=preston
 ```
@@ -230,7 +230,7 @@ spec:
 challenges.
 1. Switching the nodeports between namespaces.
 2. The order of deploying these .yml files especially the resource quota.
-3. Getting the Elk stack configured.
+3. Getting the EKS stack configured.
 
 
 
