@@ -1,5 +1,6 @@
 # kubernetes-twoge
 My task on this project was to deploy the twoge application utilizing kubernete's locally via minikube and then on AWS Elastic Kubernetes Service . 
+<img src="https://github.com/prestonmoody/kubernetes-twoge/blob/main/Local-to-EKS.png">
 
 First I git cloned chandras repository of the twoge application which can be found @ https://github.com/chandradeoarya/twoge/tree/k8s
 
